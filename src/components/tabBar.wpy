@@ -1,0 +1,55 @@
+<style lang="less">
+.tabBar {
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    right: 0rpx;
+    navigator {
+        height: 120rpx;
+        width: 25%;
+        // text-align: center;
+        image {
+            width: 50rpx;
+            height: 50rpx;
+        }
+        view {
+            display: block;
+        }
+    }
+    .active {
+
+    }
+}
+</style>
+<template>
+    <view class="tabBar back1 flex">
+        <navigator url="home" class="imgCenter">
+            <image src="../images/tabBar/home.png" style="width:100rpx;height:100rpx;">
+        </navigator>
+        <navigator url="own" class="imgCenter">
+            <image src="../images/tabBar/shopping.png"/>
+            <view>消息</view>
+        </navigator>
+        <navigator url="own" class="imgCenter">
+            <image src="../images/tabBar/shopping.png"/>
+            <view>购物车</view>
+        </navigator>
+        <navigator url="own" class="imgCenter">
+            <image src="../images/tabBar/shopping.png"/>
+            <view>我的</view>
+        </navigator>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy';
+    export default class TabBar extends wepy.component {
+        data = {}
+        props = {
+        }
+        components = {}
+        events = {}
+        methods = {}
+        watch = {}
+        onLoad() {}
+    }
+</script>

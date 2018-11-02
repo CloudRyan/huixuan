@@ -15,7 +15,26 @@
         'pages/prompt',//提示消息
         'pages/home',//首页
         'pages/search',//搜索页面
+        'pages/own',//我
       ],
+      //设置底部 tab 的表现
+      // "tabBar": {
+      //   "color": "#b9b9c1",
+      //   "selectedColor": "#16B4BA",
+      //   "backgroundColor": "#FFFFFF",
+      //   "borderStyle": "black",
+      //   "list": [{
+      //     "pagePath": "pages/home",
+      //     // "text": "首页",
+      //     "iconPath": "images/tabBar/home.png",
+      //     "selectedIconPath": "images/tabBar/home.png"
+      //   }, {
+      //     "pagePath": "pages/own",
+      //     "text": "我的",
+      //     // "iconPath": "images/icon_info.png",
+      //     // "selectedIconPath": "images/icon_info_active.png"
+      //   }]
+      // },
       window: {
         navigationBarBackgroundColor: '#FF6F33',
         navigationBarTitleText: '惠选',

@@ -51,8 +51,11 @@
     }
     onLoad() {
 			// this.$redirect('login')
-			this.$redirect('home')
 			// this.$redirect('search')
+
+			
+			// wepy.switchTab({url:'home'})
+			this.$redirect('home')
     }
   }
 </script>

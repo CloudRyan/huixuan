@@ -1,0 +1,20 @@
+<style lang="less">
+</style>
+<template>
+    <view>
+        2333333
+    </view>
+</template>
+<script>
+    import wepy from 'wepy';
+    export default class Company extends wepy.component {
+        data = {}
+        props = {
+        }
+        components = {}
+        events = {}
+        methods = {}
+        watch = {}
+        onLoad() {}
+    }
+</script>

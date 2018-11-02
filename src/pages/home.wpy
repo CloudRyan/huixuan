@@ -83,7 +83,11 @@
 				<image src="../images/home/headlines.png" />
 				<view class="fc3 fz12">惠选云商为百万小店打造”赚钱利器”</view>
 			</view>
+			<view class="top20">
+				<company/>
+			</view>
 		</view>
+		<tabBar/>
 	</view>
 </template>
 
@@ -91,6 +95,8 @@
 	import wepy from 'wepy'
 	import searchStyle from '../components/searchStyle'
 	import swiperSlide from '../components/swiperSlide'
+	import company from '../components/company'
+	import tabBar from '../components/tabBar'
 
 	export default class Home extends wepy.page {
 		config = {
@@ -105,6 +111,8 @@
 		components = {
 			searchStyle,
 			swiperSlide,
+			company,
+			tabBar
 		}
 		onLoad() {}
 	}
