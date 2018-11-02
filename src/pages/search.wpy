@@ -1,0 +1,75 @@
+<style lang="less">
+page{
+	background-color: #f2f2f2;
+	.topBar {
+		padding: 20rpx 0rpx 20rpx 35rpx;
+		.search {
+			height: 75rpx;
+			border-radius: 35rpx;
+			view {
+				width: 15%;
+			}
+			input {
+				height: 100%;
+				line-height: 77rpx;
+			}
+		}
+		.searchBtn {
+			width: 18%;
+			height: 100%;
+			line-height: 75rpx;
+		}
+	}
+}
+</style>
+<template>
+  <view class="container">
+    <view class="back flex topBar">
+			<view class="back7 search flex" style="width: {{searchdata?'82%':'calc(100% - 35rpx)'}};">
+				<view class="tc imgCenter"><icon type="search" size="15" color="#808080"/></view>
+				<input type="text" placeholder="搜索商家、商品" placeholder-style="color:#C8C8C8" maxlength="32"
+				style="width:{{searchdata?'70%':'85%'}}" confirm-type="search"
+				value="{{searchdata}}" @input="userIt({{event}})" focus="{{searchfocus}}" @confirm="nextInput"/>
+				<view class="tc imgCenter" hidden="{{!searchdata}}" @tap="empty"><icon type="clear" size="20" color="#C8C8C8"/></view>
+			</view>
+			<view class="searchBtn fcf tc" hidden="{{!searchdata}}">搜索</view>
+		</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Search extends wepy.page {
+    config = {
+			navigationBarTitleText: '惠选云商',
+			backgroundColorTop: '#FF6F33',
+      backgroundColorBottom: '#f2f2f2'
+    }
+		data = {
+			searchfocus: false,//是否焦点
+			searchdata:'',//搜索
+		}
+		methods = {
+			userIt(e) {
+        this.searchdata = e.detail.value;
+      },
+			empty() {
+				this.searchdata = '';
+				this.searchfocus = false;
+				setTimeout(() => {
+					this.searchfocus = true;
+					this.$apply();
+				}, 300);
+			}
+		}
+		onReady(){
+			setTimeout(() => {
+				this.searchfocus = true;
+				this.$apply();
+			}, 500);
+		}
+    onLoad() {
+			
+    }
+  }
+</script>

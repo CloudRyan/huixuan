@@ -1,0 +1,111 @@
+<style lang="less">
+	page {
+		background-color: #f2f2f2;
+		.topBar {
+			padding: 20rpx 35rpx 200rpx 30rpx;
+			.shop {
+				width: 10%;
+				image {
+					width: 55rpx;
+					height: 55rpx;
+				}
+			}
+		}
+		.content {
+			margin-top:-120rpx;
+			padding: 0rpx 35rpx;
+			.radius25 {
+				border-radius: 25rpx;
+			}
+			.radius50 {
+				border-radius: 50rpx;
+			}
+			.ptb_20 {
+				padding-top: 20rpx;
+				padding-bottom: 20rpx;
+			}
+			.plr_20 {
+				padding-left: 20rpx;
+				padding-right: 20rpx;
+			}
+			.reviewTips {
+				.radius25;
+				.ptb_20;
+				background-color: #F9E6B3;
+				color: #644F1B;
+				image {
+					width: 22pt;
+					height: 26pt;
+				}
+				.right-access {
+					width: 60rpx;
+				}
+				.right-access:after {
+					border-color: #D6B363;
+				}
+			}
+			.headlines {
+				.radius50;
+				padding: 26rpx 36rpx;
+				image {
+					width: 132rpx;
+					height: 34rpx;
+				}
+			}
+		}
+	}
+</style>
+<template>
+	<view class="container">
+		<view class="back flex topBar">
+			<view class="shop imgCenter">
+				<image src="../images/home/shop.png" />
+			</view>
+			<searchStyle/>
+		</view>
+		<view class="content">
+			<view class="">
+				<swiperSlide/>
+			</view>
+			<view class="reviewTips flex">
+				<view class="imgCenter" style="width:120rpx;">
+					<image src="../images/home/mark.png" />
+				</view>
+				<view style="width:calc(100% - 180rpx);">
+					<view class="fz12 b1">您的入驻申请正在审核中...</view>
+					<view class="fz10" style="margin-top:7rpx;">审核结果我们将会以短信形式通知，请您耐心等待~</view>
+				</view>
+				<view class="imgCenter">
+					<view class="right-access"></view>
+				</view>
+			</view>
+			<view class="headlines top20 back7 flex">
+				<image src="../images/home/headlines.png" />
+				<view class="fc3 fz12">惠选云商为百万小店打造”赚钱利器”</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	import wepy from 'wepy'
+	import searchStyle from '../components/searchStyle'
+	import swiperSlide from '../components/swiperSlide'
+
+	export default class Home extends wepy.page {
+		config = {
+			navigationBarTitleText: '惠选云商',
+			backgroundColorTop: '#FF6F33',
+			backgroundColorBottom: '#f2f2f2'
+		}
+		data = {
+		}
+		methods = {
+		}
+		components = {
+			searchStyle,
+			swiperSlide,
+		}
+		onLoad() {}
+	}
+</script>

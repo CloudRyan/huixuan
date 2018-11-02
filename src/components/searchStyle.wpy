@@ -1,0 +1,50 @@
+<style lang="less">
+    .search {
+        width: 87%;
+        height: 75rpx;
+        border-radius: 35rpx;
+        .imgCenter {
+            width: 15%;
+        }
+        .intext {
+            width: 85%;
+            height: 100%;
+            line-height: 77rpx;
+        }
+    }
+</style>
+<template>
+    <view class="back7 search flex" @tap="jump">
+        <view class="tc imgCenter">
+            <icon type="search" size="15" color="#808080" />
+        </view>
+        <view class="intext fc75">搜索商家、商品</view>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy';
+    export default class SearchStyle extends wepy.component {
+        data = {}
+        props = {
+            // 	canvasHide: {
+            // 		type: Boolean,
+            // 		default: false,
+            // 		twoWay: true,
+            // 	}
+        }
+        components = {}
+        // events = {
+        //   //父传
+        //   'some-event': () => {}
+        // }
+        methods = {
+            jump(){
+                wepy.navigateTo({
+                    url:'search'
+                });
+            }
+        }
+        watch = {}
+        onLoad() {}
+    }
+</script>

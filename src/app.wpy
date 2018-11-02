@@ -1,0 +1,58 @@
+<style lang="less">
+  @import "./styles/base.less";
+  @import "./styles/animation.less";
+</style>
+
+<script>
+  import wepy from 'wepy'
+  import 'wepy-async-function'
+  export default class extends wepy.app {
+    config = {
+      pages: [
+        'pages/index',
+        'pages/login',//登录
+        'pages/register',//申请入驻
+        'pages/prompt',//提示消息
+        'pages/home',//首页
+        'pages/search',//搜索页面
+      ],
+      window: {
+        navigationBarBackgroundColor: '#FF6F33',
+        navigationBarTitleText: '惠选',
+        navigationBarTextStyle: 'white',
+        enablePullDownRefresh: false,
+        backgroundTextStyle: 'dark',
+        backgroundColor: '#FFFFFF',
+        // backgroundColorTop: '#FFFFFF',
+        // backgroundColorBottom: '#FFFFFF'
+      },
+      //设置网络超时时间
+      "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+      },
+      //设置是否开启 debug 模式
+      "debug": false
+    };
+    constructor() {
+      super();
+      this.use('promisify');
+      this.use('requestfix');
+    };
+    globalData = {
+      userInfo: null
+    };
+    onLaunch() {};
+    async getUserInfo() {
+      // if (this.globalData.userInfo) {
+      //   return this.globalData.userInfo;
+      // }
+      // await wx.login();
+      // let res = await wx.getUserInfo();
+      // this.globalData.userInfo = res.userInfo;
+      // return res.userInfo;
+    }
+  }
+</script>

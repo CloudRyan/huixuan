@@ -1,0 +1,202 @@
+@base-color: #FF6F33; //主题色
+@base-color1: #DDDDDD;
+@base-color2: #FFB799;
+@base-color3: #333333;
+@base-color6: #666666;
+@base-color7: #FFFFFF;
+@base-color8: #C8C8C8;
+@base-color9: #f2f2f2;
+@base-color75: #757575;
+page {
+    font-family: "微软雅黑";
+    .fz14;
+    .fc6;
+    input {
+        .fc6;
+    }
+}
+
+.back {
+    background-color: @base-color;
+}
+
+.back1 {
+    background-color: @base-color1;
+}
+
+.back2 {
+    background-color: @base-color2;
+}
+
+.back3 {
+    background-color: @base-color3;
+}
+
+.back6 {
+    background-color: @base-color6;
+}
+
+.back7 {
+    background-color: @base-color7;
+}
+
+.back8 {
+    background-color: @base-color8;
+}
+
+.back9 {
+    background-color: @base-color9;
+}
+
+.back75 {
+    background-color: @base-color75;
+}
+
+//文字颜色
+.fcd {
+    color: @base-color1;
+}
+
+.fc0 {
+    color: #000000;
+}
+.fc {
+    color: @base-color;
+}
+
+.fc3 {
+    color: @base-color3;
+}
+
+.fc6 {
+    color: @base-color6;
+}
+.fcf {
+    color: @base-color7;
+}
+.fc8 {
+    color: @base-color8;
+}
+
+.fc75 {
+    color: @base-color75;
+}
+
+//文字大小
+.fz10 {
+    .font-size(10rpx);
+}
+.fz12 {
+    .font-size(12rpx);
+}
+.fz14 {
+    .font-size(14rpx);
+}
+.fz15 {
+    .font-size(15rpx);
+}
+
+.fz16 {
+    .font-size(16rpx);
+}
+
+.fz17 {
+    .font-size(17rpx);
+}
+
+.fz20 {
+    .font-size(20rpx);
+}
+
+.font-size(@size) {
+    // @size_rpx:@size*2; 
+    // font-size: @size_rpx + (@size_rpx*0.2);
+    font-size: @size*2.2;
+}
+.b1 {
+    font-weight:600;
+}
+.h1ddd {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border1 {
+    border: 1rpx solid @base-color;
+}
+.top20 {
+    margin-top: 20rpx;
+}
+
+.right-access:after {
+    content: " ";
+    display: inline-block;
+    height: 20rpx;
+    width: 20rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    border-width: 3rpx 3rpx 0 0;
+    border-color: #9F9F9F;
+    border-style: solid;
+    transform: matrix(.71, .71, -.71, .71, 0, 0);
+}
+
+.ove-h {
+    overflow: hidden;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tr {
+    text-align: right;
+}
+
+.tc {
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}

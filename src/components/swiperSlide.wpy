@@ -1,0 +1,75 @@
+<style lang="less">
+    .swiper-box {
+        height: 260rpx;
+        .wx-swiper-dots.wx-swiper-dots-horizontal {
+            // margin-bottom: 2rpx;
+        }
+        .wx-swiper-dot {
+            width: 40rpx;
+            height: 10rpx;
+            display: inline-flex;
+            justify-content: space-between;
+        }
+        .wx-swiper-dot::before {
+            content: '';
+            flex-grow: 1;
+            border-radius: 6rpx;
+            background: rgba(216, 216, 216, 0.8);
+        }
+        .wx-swiper-dot-active::before {
+            background: rgba(255, 111, 51, 0.8);
+        }
+        .swiper-item image {
+            width: 100%;
+            border-radius: 25rpx;
+        }
+    }
+</style>
+<template>
+    <view>
+        <swiper class="swiper-box" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}"
+            previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px" @change="inchange">
+            <block wx:for="{{list}}">
+                <swiper-item>
+                    <view class="swiper-item">
+                        <image src="../images/test/home{{index+1}}.png" mode="widthFix" lazy-load="true" @load="swiperImgload"/>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy';
+    export default class SwiperSlide extends wepy.component {
+        data = {
+            indicatorColor: '#D8D8D8', //指示点颜色
+            indicatorActiveColor: '#FF6F33', //当前选中的指示点颜色
+            indicatorDots: true, //是否显示面板指示点
+            vertical: false, //滑动方向是否为纵向
+            autoplay: true, //是否自动切换
+            circular: true, //是否采用衔接滑动
+            interval: 5000, //自动切换时间间隔
+            duration: 1000, //滑动动画时长
+            previousMargin: 0,
+            nextMargin: 0,
+            list: [1, 2]
+        };
+        props = {};
+        components = {};
+        // events = {
+        //   //父传
+        //   'some-event': () => {}
+        // }
+        methods = {
+            inchange(e) {
+                console.log(e.detail);
+            },
+            swiperImgload(e){
+                console.log(e.detail.width,e.detail.height);
+            }
+        };
+        watch = {};
+        onLoad() {}
+    }
+</script>
