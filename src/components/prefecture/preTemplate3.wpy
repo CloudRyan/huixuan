@@ -1,0 +1,39 @@
+<style lang="less">
+.prefecture {
+    padding: 25rpx;
+    border-radius: 16rpx;
+    >view {
+        width: 50%;
+    }
+    image {
+        width: 100%;
+    }
+}
+</style>
+<template>
+    <view class="prefecture back7 flex">
+        <view>
+            <image src="/images/test/shop/goods (1).jpg" lazy-load="true" mode="widthFix"/>
+        </view>
+        <view>
+            <image src="/images/test/shop/goods (2).jpg" lazy-load="true" mode="widthFix"/>
+        </view>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy'
+    
+    export default class PreTemplate3 extends wepy.component {
+        data = {
+        }
+        props = {
+        }
+        components = {}
+        events = {}
+        methods = {}
+        watch = {}
+        onLoad() {
+            console.log(3333);
+        }
+    }
+</script>

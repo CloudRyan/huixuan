@@ -50,12 +50,11 @@
       // navigationBarTitleText: '欢迎'
     }
     onLoad() {
-			// this.$redirect('login')
+			this.$redirect('login')
 			// this.$redirect('search')
-
-			
 			// wepy.switchTab({url:'home'})
-			this.$redirect('home')
+			// this.$redirect('shopClassif')
+			// this.$redirect('shopHome')
     }
   }
 </script>

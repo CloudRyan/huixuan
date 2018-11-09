@@ -1,0 +1,145 @@
+<style lang="less">
+@import '../styles/style.less';
+page {
+	background-color: #FFFFFF;
+	// .topback {
+	// 	width: 100%;
+	// 	position: absolute;
+	// 	top: 0rpx;
+	// 	left: 0rpx;
+	// 	right: 0rpx;
+	// 	z-index: -1;
+	// }
+	.headsea {
+		height: 165rpx;
+		>view {
+			overflow: hidden;
+			height: 165rpx;
+			position: fixed;
+			left: 0rpx;
+			right: 0rpx;
+			top: 0rpx;
+		}
+	}
+	.seaView {
+		padding: 45rpx 35rpx 45rpx 35rpx;
+		.search {
+			width:100%;
+			text-align: center;
+			justify-content: center;
+			.imgCenter {
+				width: auto;
+			}
+			.intext {
+				width: auto;
+				margin-left: 20rpx;
+			}
+		}
+	}
+	.classlist {
+		width: 180rpx;
+		position: fixed;
+		top: 165rpx;
+		left:0rpx;
+		bottom: 100rpx;
+		>view {
+			height: 100rpx;
+			line-height: 100rpx;
+			border-bottom:1rpx solid #F5e5e5;
+			.fire {
+				width: 30rpx;
+				height: 30rpx;
+				margin-right: 15rpx;
+				border-radius: 5rpx;
+			}
+		}
+		.active {
+			background-color:#FFFFFF;
+			position: relative;
+			color:#FF6500;
+		}
+		.active::before {
+			content: "";
+			height: 100%;
+			width: 6rpx;
+			background-color: #FF6500;
+			position: absolute;
+			top: 0rpx;
+			left:0rpx;
+		}
+	}
+	.classinfo {
+		margin-left: 180rpx;
+	}
+
+	// 重写列表样式
+	.GoodsPage .GooTemplate2 {
+		border-radius:0rpx;
+		border-bottom: 1rpx solid #ebebeb;
+	}
+	.GoodsPage .GooTemplate2 .gimg {
+		border: 1rpx solid #f9f2f2;
+		// box-shadow:0px 0rpx 10rpx #f9f2f2;
+	}
+	.GoodsPage .GooTemplate2 .ginfo {
+		margin-left: 2%;
+		width:62%;
+	}
+}
+</style>
+<template>
+	<view>
+		<view class="headsea">
+			<view>
+				<image src="../images/shopHome/topback.png" lazy-load="true" mode="widthFix" class="topback" />
+				<view class="seaView">
+					<searchStyle inputText="搜索店内商品"/>
+				</view>
+			</view>
+		</view>
+		<view class="">
+			<view class="classlist back9 fz13 fc6">
+				<view class="imgCenter {{active==0&&'active'}}" @tap="seeClick(0)"><image src="../images/home/fire.png" class="fire" lazy-load="true"/>热销</view>
+				<view class="imgCenter {{active==1&&'active'}}" @tap="seeClick(1)"><image src="../images/home/discounts.png" class="fire" lazy-load="true"/>优惠</view>
+				<repeat for="{{list}}" index="index" item="item" key="key">
+					<view class="imgCenter {{active==index+2&&'active'}}" @tap="seeClick({{index+2}})">{{item}}</view>
+				</repeat>
+			</view>
+			<view class="classinfo">
+				<gooTemplate2/>
+				<gooTemplate2/>
+			</view>
+		</view>
+		<tabBarShop/>
+	</view>
+</template>
+
+<script>
+	import wepy from 'wepy'
+	import tabBarShop from '../components/tabBarShop'
+	import searchStyle from '../components/searchStyle'
+	import gooTemplate2 from '../components/goods/gooTemplate2'
+
+	export default class ShopClassif extends wepy.page {
+		config = {
+			navigationBarTitleText: '星艺粮烟酒批发商行',
+			backgroundColorTop: '#FFFFFF',
+			backgroundColorBottom: '#FFFFFF'
+		}
+		data = {
+			active: 0,
+			list:['乳制品','休闲零食','粮油调味']
+		}
+		methods = {
+			seeClick(type){
+				this.active = type;
+			}
+		}
+		components = {
+			tabBarShop,
+			searchStyle,
+			gooTemplate2
+		}
+		onLoad() {}
+	}
+</script>

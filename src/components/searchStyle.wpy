@@ -18,7 +18,7 @@
         <view class="tc imgCenter">
             <icon type="search" size="15" color="#808080" />
         </view>
-        <view class="intext fc75">搜索商家、商品</view>
+        <view class="intext fc75">{{inputText}}</view>
     </view>
 </template>
 <script>
@@ -26,6 +26,10 @@
     export default class SearchStyle extends wepy.component {
         data = {}
         props = {
+            inputText: {
+                type: String,
+                default: '搜索商家、商品',
+            },
             // 	canvasHide: {
             // 		type: Boolean,
             // 		default: false,

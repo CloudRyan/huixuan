@@ -2,7 +2,7 @@
 	page {
 		background-color: #f2f2f2;
 		.topBar {
-			padding: 20rpx 35rpx 200rpx 30rpx;
+			padding: 20rpx 35rpx 200rpx 20rpx;
 			.shop {
 				width: 10%;
 				image {
@@ -12,10 +12,10 @@
 			}
 		}
 		.content {
-			margin-top:-120rpx;
-			padding: 0rpx 35rpx;
+			margin-top:-170rpx;
+			padding: 0rpx 25rpx;
 			.radius25 {
-				border-radius: 25rpx;
+				border-radius: 20rpx;
 			}
 			.radius50 {
 				border-radius: 50rpx;
@@ -58,8 +58,8 @@
 <template>
 	<view class="container">
 		<view class="back flex topBar">
-			<view class="shop imgCenter">
-				<image src="../images/home/shop.png" />
+			<view class="shop imgCenter" @tap="shopShow">
+				<image src="../images/home/shop.png" lazy-load="false"/>
 			</view>
 			<searchStyle/>
 		</view>
@@ -67,9 +67,9 @@
 			<view class="">
 				<swiperSlide/>
 			</view>
-			<view class="reviewTips flex">
+			<navigator url="prompt" class="reviewTips flex">
 				<view class="imgCenter" style="width:120rpx;">
-					<image src="../images/home/mark.png" />
+					<image src="../images/home/mark.png" lazy-load="false"/>
 				</view>
 				<view style="width:calc(100% - 180rpx);">
 					<view class="fz12 b1">您的入驻申请正在审核中...</view>
@@ -78,16 +78,17 @@
 				<view class="imgCenter">
 					<view class="right-access"></view>
 				</view>
-			</view>
+			</navigator>
 			<view class="headlines top20 back7 flex">
-				<image src="../images/home/headlines.png" />
+				<image src="../images/home/headlines.png" lazy-load="false"/>
 				<view class="fc3 fz12">惠选云商为百万小店打造”赚钱利器”</view>
 			</view>
 			<view class="top20">
 				<company/>
 			</view>
 		</view>
-		<tabBar/>
+		<tabBar hidden="{{!tabFixed}}"/>
+		<shopList hidden="{{!isShop}}" :isShop.sync="isShop"/>
 	</view>
 </template>
 
@@ -97,6 +98,7 @@
 	import swiperSlide from '../components/swiperSlide'
 	import company from '../components/company'
 	import tabBar from '../components/tabBar'
+	import shopList from '../components/shopList'
 
 	export default class Home extends wepy.page {
 		config = {
@@ -105,15 +107,34 @@
 			backgroundColorBottom: '#f2f2f2'
 		}
 		data = {
+			tabScrollTop: 0,
+			tabFixed: true,
+			isShop: false,
 		}
 		methods = {
+			shopShow(){
+				this.isShop = !this.isShop;
+			}
 		}
 		components = {
 			searchStyle,
 			swiperSlide,
 			company,
-			tabBar
+			tabBar,
+			shopList
 		}
-		onLoad() {}
+		onLoad() {
+		}
+		
+		// onPageScroll(e){//全局监听滚动条
+		// 	console.log(this.tabScrollTop , e.scrollTop);
+		// 	if(e.scrollTop > this.tabScrollTop){
+		// 		this.tabFixed = false;
+		// 	}else {
+		// 		this.tabFixed = true;
+		// 	}
+		// 	this.tabScrollTop = e.scrollTop
+		// 	this.$apply();
+        // }
 	}
 </script>

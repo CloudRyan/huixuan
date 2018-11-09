@@ -1,0 +1,130 @@
+<style lang="less">	
+@import '../styles/style.less';
+</style>
+<template>
+	<view class="container">
+		<image src="../images/shopHome/topback.png" lazy-load="true" mode="widthFix" class="topback" />
+		<view class="back7 shopData relative">
+			<view class="flex" style="margin-bottom: 25rpx;">
+				<view class="logo back7 ove-h imgCenter">
+					<image src="../images/test/shop/goods (4).jpg" lazy-load="false" mode="widthFix" />
+				</view>
+				<view class="titles">
+					<text class="fc3 fz15">星艺粮烟酒批发商行</text>
+					<image src="/images/home/shangicon.png" lazy-load="true" />
+					<view class="fz10 fc6">
+						<view class="inline-block">全场123款</view>
+						<view class="inline-block">月售126单</view>
+						<!-- <button>+ 关注</button> -->
+					</view>
+				</view>
+			</view>
+			<view class="fz10 fc6">主营：烟酒、饮料、副食、日用百货等</view>
+			<view class="fz10 fc6 h1ddd">深圳市天成食品有限公司成立于1988年，注册资金1000万，具备进;深圳市天成食品有限公司成立于1988年，注册资金1000万，具备进</view>
+			<view class="andInfo">
+				<!-- <view class="line"></view> -->
+				<view class=" fc99 fz10 title back7 absolute">更多店铺信息</view>
+				<!-- <view class="line">2</view> -->
+			</view>
+			<view class="state">
+				<view class="fc fz10 back10 inline-block">香港美心</view>
+				<view class="fc fz10 back10 inline-block">捷风专配</view>
+				<view class="fc fz10 back10 inline-block">送货快</view>
+				<view class="fc fz10 back10 inline-block">折扣多</view>
+			</view>
+			<view class="record imgCenter">
+				<image src="../images/tabBar/home_active.png" />
+				<image src="../images/tabBar/home_active.png" />
+				<image src="../images/tabBar/home_active.png" />
+				<image src="../images/tabBar/home_active.png" />
+				<image src="../images/tabBar/home_active.png" />
+				<text class="fc6 fz12">已有189156 人买过</text>
+			</view>
+		</view>
+		<view class="barlist">
+			<view class="search back7 inline-block imgCenter" @tap="jumpSearch">
+				<icon type="search" size="17" color="#666666" />
+				<view class="fz13 right">搜索</view>
+			</view>
+			<view class="inline-block">
+				<view class="menuList fz14 flex tc">
+					<view class="{{tabType==1&&'active'}}" @tap="switchBar(1)">首页</view>
+					<view class="{{tabType==2&&'active'}}" @tap="switchBar(2)">新品</view>
+					<view class="{{tabType==3&&'active'}}" @tap="switchBar(3)">活动</view>
+				</view>
+			</view>
+		</view>
+		<block wx:if="{{tabType==1}}">
+			<preTemplate3/>
+			<view class="barlist" style="margin-bottom:25rpx;">
+				<view class="inline-block">
+					<view class="menuList fz13 flex tc" style="width: 400rpx;">
+						<view class="fc">综合</view>
+						<view>销量</view>
+						<view>新品</view>
+						<view>价格</view>
+					</view>
+				</view>
+				<view class="right" @tap="upgoodsState">
+					<image src="../images/shopHome/{{goodsState==true?'flex1':'flex2'}}.png" lazy-load="true" mode="widthFix" style="width:45rpx;"/>
+				</view>
+			</view>
+			<gooTemplate1 wx:if="{{goodsState}}"/>
+			<gooTemplate2 wx:else/>
+		</block>
+		<block wx:elif="{{tabType==2}}">
+			<repeat for="{{[7,6,5,4,3]}}" index="index" item="item" key="key">
+				<view class="fz13 fc99" style="margin-top:20rpx;">10月2{{item}}日</view>
+				<view style="margin-top:10rpx;" wx:if="{{index%2==1}}">
+					<gooTemplate1 />
+				</view>
+				<gooTemplate2 wx:else/>
+			</repeat>
+		</block>
+		<block wx:elif="{{tabType==3}}">
+			活动
+		</block>
+		<tabBarShop/>
+	</view>
+</template>
+
+<script>
+	import wepy from 'wepy'
+	import tabBarShop from '../components/tabBarShop'
+	import preTemplate3 from '../components/prefecture/preTemplate3'
+	import gooTemplate1 from '../components/goods/gooTemplate1'
+	import gooTemplate2 from '../components/goods/gooTemplate2'
+
+	export default class ShopHome extends wepy.page {
+		config = {
+			navigationBarTitleText: '星艺粮烟酒批发商行',
+			backgroundColorTop: '#1D1312',
+			backgroundColorBottom: '#f2f2f2'
+		}
+		data = {
+			goodsState: true,
+			tabType: 1,
+		}
+		methods = {
+			upgoodsState(){
+				this.goodsState = !this.goodsState;
+			},
+			switchBar(type){
+				console.log(type);
+				this.tabType = type;
+			},
+			jumpSearch(){
+				wepy.navigateTo({
+                    url:'search'
+                });
+			}
+		}
+		components = {
+			tabBarShop,
+			preTemplate3,
+			gooTemplate1,
+			gooTemplate2
+		}
+		onLoad() {}
+	}
+</script>

@@ -3,14 +3,20 @@
 <template>
   <view class="container">
 		我
+    <tabBar/>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
+  import tabBar from '../components/tabBar'
+
   export default class Own extends wepy.page {
     config = {
       navigationBarTitleText: '我'
+    }
+    components = {
+      tabBar,
     }
     onLoad() {
     }

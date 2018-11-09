@@ -16,6 +16,8 @@
         'pages/home',//首页
         'pages/search',//搜索页面
         'pages/own',//我
+        'pages/shopHome',//店铺首页
+        'pages/shopClassif',//店铺分类
       ],
       //设置底部 tab 的表现
       // "tabBar": {

@@ -1,0 +1,194 @@
+page {
+    background-color: #F2F2F2;
+    .container {
+        margin-left: 25rpx;
+        margin-right: 25rpx;
+    }
+    .topback {
+        width: 100%;
+        position: absolute;
+        top: 0rpx;
+        left: 0rpx;
+        right: 0rpx;
+        z-index: -1;
+    }
+    .shopData {
+        margin: 80rpx 0rpx 0rpx 0rpx;
+        border-radius: 16rpx;
+        padding: 20rpx 25rpx;
+        .logo {
+            image {
+                width: 100%;
+            }
+            width: 110rpx;
+            height: 110rpx;
+            padding: 10rpx;
+            margin-top: -55rpx;
+            border-radius: 8rpx;
+            box-shadow:0px 2rpx 7rpx #E9E9E9;
+        }
+        .titles {
+            width: 100%;
+            padding-left: 25rpx;
+            >view {
+                // margin-top: 5rpx;
+                .inline-block:not(:first-child) {
+                    margin-left: 15rpx;
+                }
+            }
+            >image {
+                width: 28rpx;
+                height: 33rpx;
+                position: relative;
+                top: 6rpx;
+                left: 10rpx;
+            }
+        }
+        .h1ddd {
+            margin-top: 7rpx;
+        }
+        .andInfo {
+            border-bottom: 2rpx solid #E5E5E5;
+            margin-top: 30rpx;
+            .title {
+                width: 200rpx;
+                left: 50%;
+                margin-top: -15rpx;
+                margin-left: -100rpx;
+                text-indent: 20rpx;
+            }
+            .title::after {
+                content: " ";
+                display: inline-block;
+                height: 15rpx;
+                width: 15rpx;
+                margin-left: 15rpx;
+                position: relative;
+                top: -3rpx;
+                border-width: 3rpx 3rpx 0 0;
+                border-color: #B2AFAF;
+                border-style: solid;
+                transform: rotate(135deg);
+            }
+        }
+        .state {
+            margin-top: 25rpx;
+            view {
+                border-radius: 18rpx;
+                padding: 5rpx 15rpx;
+            }
+            view:not(:first-child) {
+                margin-left: 15rpx;
+            }
+        }
+        .record {
+            image {
+                width: 55rpx;
+                height: 55rpx;
+                border-radius: 50%;
+                border: 2rpx solid #FFFFFF;
+                background-color: #FFFFFF;
+            }
+            image:not(:first-child) {
+                margin-left: -20rpx;
+            }
+            text {
+                margin-left: 25rpx;
+            }
+            border-radius: 38rpx;
+            background-color:#E9F7FF;
+            margin: 25rpx 10% 0rpx 10%;
+            padding: 10rpx 0rpx 10rpx 0rpx;
+        }
+    }
+    .barlist {
+        margin: 25rpx 0rpx;
+        .search {
+            height: 60rpx;
+            line-height: 60rpx;
+            border-radius: 28rpx;
+            padding: 0rpx 20rpx;
+            margin-right: 50rpx;
+            icon {
+                position: relative;
+                top: 7rpx;
+            }
+            view {
+                color: #6B6B6B;
+                margin-left: 10rpx;
+            }
+        }
+        .menuList {
+            width: 300rpx;
+            height: 60rpx;
+            line-height: 55rpx;
+            color: #353535;
+            view.active {
+                color: #FF6500;
+                position: relative;
+            }
+            view.active::after {
+                content: " ";
+                position: absolute;
+                left: 0rpx;
+                bottom: 6rpx;
+                right: 0rpx;
+                border-bottom: 2rpx solid #FF6500;
+            }
+        }
+    }
+    .GoodsPage {
+        .GooTemplate1 {
+            width: 50%;
+            margin-top: 15rpx;
+            &:nth-child(1),&:nth-child(2) {
+                margin-top: 0rpx;
+            }
+            &:nth-child(odd)>view {
+                margin-right: 7.5rpx;
+            }
+            &:nth-child(even)>view {
+                margin-left: 7.5rpx;
+            }
+            .back7 {
+                padding: 25rpx;
+                border-radius: 20rpx;
+            }
+            .gimg {
+                padding-top: 30rpx;
+                padding-bottom: 50rpx;
+            }
+            .info {
+                >view {
+                    margin-top: 5rpx;
+                }
+                .back {
+                    width: 45rpx;
+                    height: 45rpx;
+                    line-height: 40rpx;
+                    border-radius: 50%;
+                }
+            }
+        }
+        .GooTemplate2 {
+            .GooTemplate1.back7;
+            margin-top: 15rpx;
+            .gimg {
+                width: 35%;
+            }
+            .ginfo {
+                width: 60%;
+                margin-left: 5%;
+                >view:not(:first-child) {
+                    margin-top: 15rpx;
+                }
+                .back {
+                    .GooTemplate1.info.back;
+                }
+            }
+        }
+        .gimg image {
+            width: 100%;
+        }
+    }
+}

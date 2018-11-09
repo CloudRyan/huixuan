@@ -19,40 +19,43 @@
 </style>
 <template>
 	<view class="container inBottom back7 tc">
-		<icon type="success" size="90"/>
+		<icon type="success" size="90" />
 		<view class="fz17 b1">提交成功，等待审核中</view>
 		<view>预计审核将在 <text class="fc">48小时</text> 内完成</view>
-		<button class="tc fc border1 fz14 back7" @tap="getHome">返回首页({{time}}s)</button>
+		<button class="tc fc border1 fz14 back7" @tap="jumpPage">返回首页({{time}}s)</button>
 	</view>
 </template>
 
 <script>
 	import wepy from 'wepy'
-
 	export default class Prompt extends wepy.page {
 		config = {
+			navigationBarTitleText: '申请入驻',
 			backgroundColorTop: '#f2f2f2',
-      backgroundColorBottom: '#f2f2f2'
+			backgroundColorBottom: '#f2f2f2'
 		}
 		data = {
 			time: '',
 			already: false,
 		}
-
 		methods = {
-			getHome() {
-				this.already = true;
-				this.$redirect('home'); // 跳转
+			jumpPage() {
+				const pages = getCurrentPages()
+				if(pages.length==1){
+					this.$redirect('home'); // 跳转
+				}else{
+					wepy.navigateBack();//返回
+				}
+				
 			}
 		}
 		
-    onReady(){
+		onReady() {
 			const timing = (num) => {
-				if(this.already == true)//已经点击跳转直接终止
+				if (this.already == true) //已经点击跳转直接终止
 					return;
-				
 				if (num <= 0) {
-					this.$redirect('home'); // 跳转
+					this.methods.jumpPage.call(this);
 				} else {
 					this.time = num;
 					setTimeout(() => {
@@ -64,9 +67,21 @@
 			timing(5);
 		}
 		onLoad() {
-			wepy.setNavigationBarTitle({
-				title: '申请入驻'
-			});
+			// wepy.setNavigationBarTitle({
+			// 	title: '申请入驻'
+			// });
+			// const pages = getCurrentPages() //获取加载的页面
+
+			// const currentPage = pages[pages.length-1] //获取当前页面的对象
+
+			// const url = currentPage.route //当前页面url
+
+			// const options = currentPage.options //如果要获取url中所带的参数可以查看options
+			// pages.length
 		}
+		onUnload() {
+			this.already = true;
+		}
+
 	}
 </script>

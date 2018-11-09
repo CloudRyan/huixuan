@@ -37,7 +37,7 @@
       <view class="line">
         <view class="tis flex">
           <text class="fc3 fz16">邀请码</text>
-          <input type="number" placeholder="请输入邀请码" placeholder-style="color:#C8C8C8" class="tr" maxlength="4"/>
+          <input type="number" placeholder="请输入邀请码" placeholder-style="color:#C8C8C8" class="tr" maxlength="6"/>
         </view>
       </view>
     </view>

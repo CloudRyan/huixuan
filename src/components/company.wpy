@@ -1,19 +1,185 @@
 <style lang="less">
+.border20 {
+    border-radius: 20rpx;
+}
+.p20 {
+    padding: 25rpx;
+}
+.mtop10 {
+    margin-bottom: 10rpx;
+}
+.mb20 {
+    margin-bottom: 25rpx;
+}
+.border8 {
+    border-radius: 8rpx;
+}
+.company {
+    .border20;
+    .mb20;
+    .logo {
+        .border8;
+        border: 1rpx solid #E5E5E5;
+        padding: 10rpx;
+        image {
+            width: 100rpx;
+            height: 100rpx;
+        }
+        width: 15%;
+    }
+    .info {
+        padding-left: 20rpx;
+        width: 85%;
+        .bfd{
+            .border8;
+            background-color: #FDEDE7;
+            padding: 5rpx 15rpx;
+        }
+        .bfd:not(:first-child) {
+            margin-left: 20rpx;
+        }
+        image {
+            width: 28rpx;
+            height: 33rpx;
+            position: relative;
+            top: 6rpx;
+        }
+        .enter {
+            min-width: 150rpx;
+            height: 50rpx;
+            line-height: 50rpx;
+            border-radius: 24rpx;
+            margin-top: -10rpx;
+            padding:0rpx;
+        }
+    }
+
+    .scroll-view {
+        width: 200rpx;
+        image {
+            width: 100%;
+            // height: 200rpx;
+        }
+        .h1ddd {
+            width: 200rpx;
+        }
+        >view:not(:first-child) {
+            // margin-top: 10rpx;
+        }
+        .spend {
+            right: 0rpx;
+            width: 75rpx;
+            height: 35rpx;
+            line-height: 35rpx;
+            border-radius: 0rpx 14rpx 0rpx 14rpx;
+            background: linear-gradient(to bottom right, #FF5900, #FF7E00);
+        }
+    }
+    .scroll-view:not(:first-child){
+        margin-left: 20rpx;
+    }
+    .headline {
+        view {
+            padding: 10rpx 24rpx;
+            border-radius: 18rpx;
+        }
+        view:not(:first-child) {
+            margin-left: 10rpx;
+        }
+    }
+}
+.logo::before {
+    content: "";
+    height: 5rpx;
+    width: 100%;
+    background-color: #FF6F33;
+    position: absolute;
+    top: -25rpx;
+    opacity: 0.8;
+}
 </style>
 <template>
-    <view>
-        2333333
-    </view>
+    <repeat for="{{list}}" index="index" item="item" key="key">
+        <view class="company back7">
+            <navigator url="shopHome">
+                <view class="p20">
+                    <view class="flex mb20">
+                        <view class="logo relative imgCenter tc"><image src="/images/tabBar/home.png" lazy-load="true"/></view>
+                        <view class="info">
+                            <view class="fc3 fz14 cl">
+                                天成食品有限公司
+                                <image src="/images/home/shangicon.png" lazy-load="true"/>
+                            </view>
+                            <view class="flex">
+                                <view class="fc99 fz10 h1ddd" style="width: calc(100% - 180rpx)">主营：烟酒、饮料、副食、日用百货</view>
+                                <button class="enter back fcf fz12 right">进入店铺</button>
+                            </view>
+                            <view class="fc fz10">
+                                <view class="bfd inline-block">全场123款</view>
+                                <view class="bfd inline-block">起送￥99</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="mb20">
+                        <image class="border8" style="width: 100%;" src="/images/test/home1.png" mode="widthFix" lazy-load="true"/>
+                    </view>
+                    <view class="mb20">
+                        <scroll-view scroll-x="true" class="flexlist">
+                            <repeat for="{{list}}" index="index" item="item" key="key">
+                                <view class="scroll-view" @tap.stop="jumpDetails">
+                                    <view class="relative">
+                                        <view class="fz10 fcf tc absolute spend">火抢</view>
+                                        <image src="{{item.img}}" mode="widthFix" lazy-load="true" onLoad="imgload"/>
+                                    </view>
+                                    <view class="h1ddd fz10 fc3">清风 抽纸 淡绿 清风 抽纸 淡绿</view>
+                                    <view class="fz13 fc"><text class="fz10">￥</text>?</view>
+                                    <view class="fz9 fc99">已售 2.8万件</view>
+                                </view>
+                            </repeat>
+                        </scroll-view>
+                    </view>
+                    <view class="headline">
+                        <view class="fc6 fz10 back9 inline-block">香港美心</view>
+                        <view class="fc6 fz10 back9 inline-block">捷风专配</view>
+                        <view class="fc6 fz10 back9 inline-block">送货快</view>
+                        <view class="fc6 fz10 back9 inline-block">折扣多</view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </repeat>
 </template>
 <script>
     import wepy from 'wepy';
     export default class Company extends wepy.component {
-        data = {}
+        data = {
+            list: [
+                {
+                    img:'/images/test/shop/goods (1).jpg'
+                },
+                {
+                    img:'/images/test/shop/goods (2).jpg'
+                },
+                {
+                    img:'/images/test/shop/goods (3).jpg'
+                },
+                {
+                    img:'/images/test/shop/goods (4).jpg'
+                },
+            ]
+        }
         props = {
         }
         components = {}
         events = {}
-        methods = {}
+        methods = {
+            imgload(e){
+                console.log(e);
+            },
+            jumpDetails(){
+                console.log(33333);
+            }
+        }
         watch = {}
         onLoad() {}
     }

@@ -1,0 +1,38 @@
+<style lang="less">
+</style>
+<template>
+    <view class="GoodsPage">
+        <repeat for="{{[1,2,3]}}" index="index" item="item" key="key">
+            <view class="flex-wrap back7 GooTemplate2">
+                <view class="gimg"><image src="/images/test/shop/goods ({{item}}).jpg" lazy-load="true" mode="widthFix"></view>
+                <view class="ginfo fz10">
+                    <view class="fc11 fz13 h2ddd">清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层</view>
+                    <view class="fc6">120抽x24包</view>
+                    <view class="fc99">月销17.7万件 1件起批</view>
+                    <view>
+                        <text class="fc76">￥<text class="fz13">59.90</text></text>
+                        <text class="fc99 hs">￥68.8</text>
+                        <view class="back fz20 fcf tc right b1">+</view>
+                    </view>
+                </view>
+            </view>
+        </repeat>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy'
+    
+    export default class GooTemplate2 extends wepy.component {
+        data = {
+        }
+        props = {
+        }
+        components = {}
+        events = {}
+        methods = {}
+        watch = {}
+        onLoad() {
+            
+        }
+    }
+</script>

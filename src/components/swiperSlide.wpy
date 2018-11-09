@@ -29,13 +29,13 @@
     <view>
         <swiper class="swiper-box" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}"
             previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px" @change="inchange">
-            <block wx:for="{{list}}">
+            <repeat for="{{list}}" index="index" item="item" key="key">
                 <swiper-item>
                     <view class="swiper-item">
                         <image src="../images/test/home{{index+1}}.png" mode="widthFix" lazy-load="true" @load="swiperImgload"/>
                     </view>
                 </swiper-item>
-            </block>
+            </repeat>
         </swiper>
     </view>
 </template>
@@ -50,7 +50,7 @@
             autoplay: true, //是否自动切换
             circular: true, //是否采用衔接滑动
             interval: 5000, //自动切换时间间隔
-            duration: 1000, //滑动动画时长
+            duration: 500, //滑动动画时长
             previousMargin: 0,
             nextMargin: 0,
             list: [1, 2]

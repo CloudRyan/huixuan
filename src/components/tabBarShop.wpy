@@ -10,7 +10,8 @@
         height: 100rpx;
         width: 25%;
     }
-    navigator:not(.active) {
+    // navigator:not(.active) {
+    navigator {
         image {
             width: 48rpx;
             height: 48rpx;
@@ -30,28 +31,31 @@
 <template>
     <view style="height:120rpx;">
         <view class="tabBar back7 fz10 flex inBottom tc">
-            <navigator open-type="redirect" url="home" class="{{pageCurrent=='home'?'active':''}}">
-                <image src="../images/tabBar/home{{pageCurrent=='home'?'_active':''}}.png" style="{{pageCurrent=='home'?'width:100rpx;height:100rpx;':''}}"/>
-                <view wx:if="{{pageCurrent != 'home'}}">首页</view>
+            <navigator open-type="redirect" url="shopHome" class="{{pageCurrent=='shopHome'?'active':''}}">
+                <!-- <image src="../images/tabBar/home{{pageCurrent=='shopHome'?'_active':''}}.png" 
+                style="{{pageCurrent=='shopHome'?'width:100rpx;height:100rpx;':''}}"/> -->
+                <!-- <view wx:if="{{pageCurrent != 'shopHome'}}">首页</view> -->
+                <image src="../images/tabBar/store.png"/>
+                <view>首页</view>
             </navigator>
-            <navigator open-type="redirect" url="">
-                <image src="../images/tabBar/message.png"/>
-                <view>消息</view>
+            <navigator open-type="redirect" url="shopClassif">
+                <image src="../images/tabBar/class{{pageCurrent=='shopClassif'?'_active':''}}.png"/>
+                <view class="{{pageCurrent=='shopClassif'?'fc':''}}">商品分类</view>
             </navigator>
             <navigator open-type="redirect" url="">
                 <image src="../images/tabBar/shopping.png"/>
                 <view>购物车</view>
             </navigator>
-            <navigator open-type="redirect" url="own">
-                <image src="../images/tabBar/own{{pageCurrent=='own'?'_active':''}}.png"/>
-                <view class="{{pageCurrent=='own'?'fc':''}}">我的</view>
+            <navigator open-type="redirect" url="">
+                <image src="../images/tabBar/forwarding{{pageCurrent=='own'?'_active':''}}.png"/>
+                <view class="{{pageCurrent=='own'?'fc':''}}">转发</view>
             </navigator>
         </view>
     </view>
 </template>
 <script>
     import wepy from 'wepy';
-    export default class TabBar extends wepy.component {
+    export default class TabBarShop extends wepy.component {
         props = {
         }
         data = {}
