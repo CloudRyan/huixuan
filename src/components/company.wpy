@@ -155,16 +155,16 @@
         data = {
             list: [
                 {
-                    img:'/images/test/shop/goods (1).jpg'
+                    img:'/images/test/shop/goods1.jpg'
                 },
                 {
-                    img:'/images/test/shop/goods (2).jpg'
+                    img:'/images/test/shop/goods2.jpg'
                 },
                 {
-                    img:'/images/test/shop/goods (3).jpg'
+                    img:'/images/test/shop/goods3.jpg'
                 },
                 {
-                    img:'/images/test/shop/goods (4).jpg'
+                    img:'/images/test/shop/goods4.jpg'
                 },
             ]
         }

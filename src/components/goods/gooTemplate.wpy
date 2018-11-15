@@ -1,0 +1,83 @@
+<style lang="less">
+</style>
+<template>
+    <panel>
+        <!-- 样式模板1 -->
+        <view class="GoodsPage flex-wrap" wx:if="{{com}}">
+            <repeat for="{{[1,2,3]}}" index="index" item="item" key="key">
+                <view class="GooTemplate1" @tap="jumpDetails">
+                    <view class="back7">
+                        <view class="gimg"><image src="/images/test/shop/goods{{item}}.jpg" lazy-load="true" mode="widthFix"></view>
+                        <view class="info fz10">
+                            <view class="fc11 fz13 h1ddd">清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层</view>
+                            <view class="fc6">120抽x24包</view>
+                            <view class="fc99">月销17.7万件 1件起批</view>
+                            <view>
+                                <text class="fc76">￥<text class="fz13">59.90</text></text>
+                                <text class="fc99 hs">￥68.8</text>
+                                <view class="back fz20 fcf tc right b1" @tap.stop="addChoose">+</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </repeat>
+        </view>
+
+        <!-- 样式模板2 -->
+        <view class="GoodsPage"  wx:if="{{!com}}">
+            <repeat for="{{[1,2,3]}}" index="index" item="item" key="key">
+                <view class="flex-wrap back7 GooTemplate2" @tap="jumpDetails">
+                    <view class="gimg"><image src="/images/test/shop/goods{{item}}.jpg" lazy-load="true" mode="widthFix"></view>
+                    <view class="ginfo fz10">
+                        <view class="fc11 fz13 h2ddd">清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层清风 抽纸 淡绿花二层</view>
+                        <view class="fc6">120抽x24包</view>
+                        <view class="fc99">月销17.7万件 1件起批</view>
+                        <view>
+                            <text class="fc76">￥<text class="fz13">59.90</text></text>
+                            <text class="fc99 hs">￥68.8</text>
+                            <view class="back fz20 fcf tc right b1" @tap.stop="addChoose">+</view>
+                        </view>
+                    </view>
+                </view>
+            </repeat>
+        </view>
+
+        <!--  -->
+        <choose :isShow.sync="ischoose"/>
+    </panel>
+</template>
+<script>
+    import wepy from 'wepy'
+    import choose from '../choose'
+
+    export default class GooTemplate extends wepy.component {
+        data = {
+            ischoose: false,
+        }
+        props = {
+            com: {
+                type: Boolean,
+                default: 1,
+                twoWay: true,
+            }
+        }
+        components = {
+            choose
+        }
+        events = {}
+        methods = {
+            jumpDetails(){
+                wepy.navigateTo({
+                    url:'details'
+                });
+            },
+            addChoose(){
+                this.ischoose = true;
+            }
+        }
+        watch = {
+        }
+        onLoad() {
+        }
+    }
+</script>

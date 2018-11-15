@@ -1,0 +1,30 @@
+<style lang="less">
+</style>
+<template>
+    <panel>
+    
+    </panel>
+</template>
+<script>
+    import wepy from 'wepy'
+    
+    export default class ShopList extends wepy.component {
+        data = {
+            
+        }
+        props = {
+            // isShop: {
+            //     type: Boolean,
+            //     default: true,
+            //     twoWay: true,
+            // }
+        }
+        components = {}
+        events = {}
+        methods = {
+        }
+        watch = {}
+        onLoad() {
+        }
+    }
+</script>

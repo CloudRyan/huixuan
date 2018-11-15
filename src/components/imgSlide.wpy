@@ -1,0 +1,67 @@
+<style lang="less">
+    .swiper-box {
+        .swiper-item image{
+            width: 100%;
+        }
+    }
+    .current {
+        opacity: .8;
+        position: absolute;
+        right: 25rpx;
+        margin-top: -75rpx;
+        width: 80rpx;
+        height: 50rpx;
+        line-height: 50rpx;
+        border-radius: 25rpx;
+        background-color: #B2B2B2;
+    }
+</style>
+<template>
+    <panel>
+        <swiper class="swiper-box back7" style="height:{{imageHeight}}px" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}"
+            previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px" @change="inchange">
+            <repeat for="{{list}}" index="index" item="item" key="key">
+                <swiper-item>
+                    <view class="swiper-item">
+                        <image src="../images/test/shop/goods{{index+1}}.jpg" mode="widthFix" lazy-load="true" @load="swiperImgload"/>
+                    </view>
+                </swiper-item>
+            </repeat>
+        </swiper>
+        <view class="current tc fcf fz12">{{current+1}}/{{list.length}}</view>
+    </panel>
+</template>
+<script>
+    import wepy from 'wepy';
+    export default class ImgSlide extends wepy.component {
+        data = {
+            indicatorDots: false, //是否显示面板指示点
+            vertical: false, //滑动方向是否为纵向
+            autoplay: false, //是否自动切换
+            circular: false, //是否采用衔接滑动
+            interval: 5000, //自动切换时间间隔
+            duration: 500, //滑动动画时长
+            previousMargin: 0,
+            nextMargin: 0,
+            list: [1,2,3,4],
+            imageHeight: wepy.getSystemInfoSync().windowWidth,
+            current: 0,//当前显示的图片
+        };
+        props = {};
+        components = {};
+        // events = {
+        //   //父传
+        //   'some-event': () => {}
+        // }
+        methods = {
+            inchange(e) {
+                this.current = e.detail.current;
+            },
+            // swiperImgload(e){//图片加载完成
+            //     console.log(e.detail.width,e.detail.height);
+            // }
+        };
+        watch = {};
+        onLoad() {}
+    }
+</script>

@@ -13,10 +13,10 @@
 <template>
     <view class="prefecture back7 flex">
         <view>
-            <image src="/images/test/shop/goods (1).jpg" lazy-load="true" mode="widthFix"/>
+            <image src="/images/test/shop/goods1.jpg" lazy-load="true" mode="widthFix"/>
         </view>
         <view>
-            <image src="/images/test/shop/goods (2).jpg" lazy-load="true" mode="widthFix"/>
+            <image src="/images/test/shop/goods2.jpg" lazy-load="true" mode="widthFix"/>
         </view>
     </view>
 </template>
@@ -33,7 +33,6 @@
         methods = {}
         watch = {}
         onLoad() {
-            console.log(3333);
         }
     }
 </script>

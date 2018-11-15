@@ -1,0 +1,321 @@
+<style lang="less">
+page {
+  background-color: #F2F2F2;
+  .panel {
+    padding: 25rpx;
+    margin-bottom: 20rpx;
+  }
+  .goodsDetails {
+    .panel;
+    border-top: 1rpx solid #E5E5E5;
+  }
+  .flex-start {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .service {
+    .panel;
+    >view {
+      .flex-start;
+      &:first-child {
+        margin-bottom: 36rpx;
+      }
+      >view:first-child {
+        margin-right: 25rpx;
+      }
+      >view:last-child {
+        >view {
+          margin-bottom: 20rpx;
+          &:last-child {
+            margin-bottom: 0rpx;
+          }
+        }
+      }
+      .confirm {
+        .flex-start;
+        align-items: center;
+        image {
+          width: 32rpx;
+          height: 32rpx;
+          margin-right: 5rpx;
+          &:last-child {
+            margin-left: 20rpx;
+          }
+        }
+      }
+      .tou {
+        padding: 4rpx 12rpx;
+        border-radius: 15rpx;
+        margin-right: 10rpx;
+      }
+      .right-access::after {
+        height: 15rpx;
+        width: 15rpx;
+        border-width: 5rpx 5rpx 0 0;
+        border-color: #B2B2B2;
+        position: absolute;
+        right: 25rpx;
+      }
+      .right-A::after {
+        margin-top: -25rpx;
+      }
+      .right-B::after {
+        margin-top: 8rpx;
+      }
+    }
+  }
+  .detailsImg {
+    image {
+      width: 100%;
+      margin: 0rpx;
+    }
+  }
+  .detBar {
+    height: 120rpx;
+    .barBtn {
+      position: fixed;
+      left: 0rpx;
+      right: 0rpx;
+      bottom: 0rpx;
+      padding: 15rpx;
+      border-top: 1rpx solid #E4E4E4;
+      box-shadow:0px -2rpx 10rpx #E4E4E4;
+      image {
+        width: 48rpx;
+        height: 48rpx;
+        position: relative;
+        top: 2rpx;
+      }
+      .fz10 view {
+        position: relative;
+        top: -2rpx;
+      }
+      >view{
+        &:nth-child(1),
+        &:nth-child(2) {
+          flex-grow: 2;
+          color: #454545;
+        }
+        &:nth-child(2) {
+          margin-right:2%;
+        }
+        &:nth-child(3),
+        &:last-child {
+          flex-grow: 3;
+          height: 80rpx;
+          line-height: 80rpx;
+        }
+        &:nth-child(3) {
+          border-radius: 40rpx 0rpx 0rpx 40rpx;
+        }
+        &:last-child {
+          border-radius: 0rpx 40rpx 40rpx 0rpx;
+        }
+      }
+    }
+  }
+  .choose {
+    position:fixed;
+    left: 0rpx;
+    right: 0rpx;
+    top: 0rpx;
+    bottom: 0rpx;
+    background: rgba(0,0,0,.5);
+    >view {
+      position: absolute;
+      left: 0rpx;
+      right: 0rpx;
+      bottom: 0rpx;
+      min-height: 70%;
+      .title {
+        height: 80rpx;
+        line-height: 80rpx;
+        border-bottom: 1rpx solid #E5E5E5;
+      .close {
+          width: 80rpx;
+          height: 80rpx;
+          position: absolute;
+          top:0rpx;
+          right: 0rpx;
+          image {
+            width: 35rpx;
+            height: 35rpx;
+          }
+        } 
+      }
+      .preview {
+        padding: 30rpx 25rpx;
+        image {
+          width: 32rpx;
+          height: 32rpx;
+          margin-right: 10rpx;
+        }
+        >view:last-child {
+          margin-top: 10rpx;
+          margin-left: 42rpx;
+        }
+      }
+      .data {
+        padding-left: 20rpx;
+        >view {
+          padding: 25rpx 0rpx;
+          border-bottom: 1rpx solid #E5E5E5;
+          >view{
+            &:first-child {
+              width: 25%;
+            }
+            &:last-child {
+              width: 75%;
+              padding-right: 20rpx;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</style>
+<template>
+    <view class="container">
+      <imgSlide/>
+      <view class="goodsDetails back7">
+        <view class="fc fz17"><text class="fz12">￥</text>19.9~38.8</view>
+        <view class="fc6 fz12 hs">价格 ￥296-469</view>
+        <view class="fc3 fz14">好吃点 饼干零食 香脆腰果饼800g(饼干礼盒)</view>
+        <view class="fc99 fz12 flex" style="margin-top: 25rpx;">
+          <view>运费 5元</view>
+          <view>5件起批</view>
+          <view>月销1855万件</view>
+        </view>
+      </view>
+      <view class="service back7 fz12">
+        <view>
+          <view class="fc99">优惠</view>
+          <view class="fc">
+            <view><text class="tou back10 fz10">满额减</text>满1000减50元</view>
+            <view><text class="tou back10 fz10">满件减</text>满10减30元</view>
+          </view>
+        </view>
+        <view @tap="partClick(2)">
+          <view class="fc99">服务</view>
+          <view class="fc3 confirm right-access">
+            <image src="../images/shopHome/confirm.png"/>店铺发货&售后
+            <image src="../images/shopHome/confirm.png"/>48小时发货
+          </view>
+        </view>
+      </view>
+      <view class="service back7 fz12">
+        <view @tap="setChoose">
+          <view class="fc99">规格</view>
+          <view class="fc3 right-access right-B">选择 口味</view>
+        </view>
+        <view @tap="partClick(1)">
+          <view class="fc99">参数</view>
+          <view class="right-access right-A">
+            <view class="fc3 h1ddd" style="width: 200rpx;">生产日期 2018年11月20日</view>
+          </view>
+        </view>
+      </view>
+      <view class="detailsImg">
+        <repeat for="111" key="index" index="index" item="item">
+          <image src="../images/test/shop/goods{{index+1}}.jpg" mode="widthFix" lazy-load="true"/>
+        </repeat>
+      </view>
+      <view class="detBar">
+        <view class="barBtn flex-around back7 tc">
+          <view class="fz10">
+            <image src="/images/tabBar/store.png"/>
+            <view>首页</view>
+          </view>
+          <view class="fz10">
+            <image src="/images/tabBar/shopping.png"/>
+            <view>购物车</view>
+          </view>
+          <view class="back77 fcf fz14">加入购物车</view>
+          <view class="back76 fcf fz14">立即购买</view>
+        </view>
+      </view>
+      <view class="choose" hidden="{{partis==0}}" @tap="partClick(0)">
+        <view class="back7 inBottom" @tap.stop="partClick({{partis}})">
+          <view class="title fc3 tc">
+            {{partis == 1 ? '产品参数' : '服务说明'}}
+            <view class="close imgCenter" @tap.stop="partClick(0)"><image src="/images/shopHome/close.png" mode="scaleToFill" lazy-load="false"></view>
+          </view>
+          <view class="data" wx:if="{{partis == 1}}">
+            <repeat for="{{productInfo}}" key="index" index="index" item="item">
+                <view class="flex-item-center">
+                  <view class="fc3 fz14">{{item.pname}}</view>
+                  <view class="fc6 fz14 h2ddd">{{item.details}}</view>
+                </view>
+            </repeat>
+          </view>
+          <view class="preview" wx:elif="{{partis == 2}}">
+            <view class="fc3 flex-item-center"><image src="../images/shopHome/confirm.png"/>48小时发货</view>
+            <view class="fc99 fz12">店家承诺支付后48小时发货</view>
+          </view>
+        </view>
+      </view>
+      <choose :isShow.sync="ischoose"/>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import imgSlide from '../components/imgSlide'
+  import choose from '../components/choose'
+
+  export default class Details extends wepy.page {
+    config = {
+      navigationBarTitleText: '商品详情'
+    }
+    data = {
+      ischoose: false,
+      partis: 0,
+      productInfo: [
+        {
+          pname:'生产日期',
+          details:'2018年03月01日至2018年05月01日',
+        },
+        {
+          pname:'产地',
+          details:'中国大陆',
+        },
+        {
+          pname:'省份',
+          details:'湖北省',
+        },
+        {
+          pname:'包装方式',
+          details:'包装',
+        },
+        {
+          pname:'品牌',
+          details:'好吃点',
+        },
+        {
+          pname:'系列',
+          details:'5斤装好吃点香脆',
+        },
+        {
+          pname:'口味',
+          details:'5斤装好吃点香脆 3斤装香脆腰果 3斤装香脆核桃',
+        },
+      ],
+
+    }
+    components = {
+      imgSlide,
+      choose
+    }
+    methods = {
+      partClick(type=0){console.log(type);
+        this.partis = type;
+      },
+      setChoose(){
+        this.ischoose = true;
+      }
+    }
+    onLoad() {
+    }
+  }
+</script>

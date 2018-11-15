@@ -1,0 +1,183 @@
+<style lang="less">
+.choose {
+  z-index: 3;
+  position:fixed;
+  left: 0rpx;
+  right: 0rpx;
+  top: 0rpx;
+  bottom: 0rpx;
+  background: rgba(0,0,0,.5);
+  >view {
+    position: absolute;
+    left: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    .barBtn {
+      padding: 35rpx 25rpx;
+      border-top: 1rpx solid #DDDDDD;
+      view {
+        flex-grow: 1;
+        height: 85rpx;
+        line-height: 85rpx;
+        &:first-child {
+          border-radius: 38rpx 0rpx 0rpx 38rpx;
+        }
+        &:last-child {
+          border-radius: 0rpx 38rpx 38rpx 0rpx;
+        }
+      }
+    }
+    .goodsData {
+      margin-bottom: 100rpx;
+      >view {
+        border-top: 1rpx solid #E5E5E5;
+        padding-top: 20rpx;
+        padding-bottom: 20rpx;
+        .gfs {
+          padding-top: 10rpx;
+          padding-bottom: 10rpx;
+
+          // >view:last-child {
+          //   margin-top: 2rpx;
+          // }
+        }
+        .calcu {
+          width: 200rpx;
+          height: 55rpx;
+          line-height: 55rpx;
+          border-radius: 5rpx;
+          border: 1rpx solid #E2E2E2;
+          margin-bottom: 10rpx;
+          view,input {
+            height: 100%;
+          }
+          view {
+            width: 60rpx;
+          }
+          input {
+            width: 80rpx;
+            border-left: 1rpx solid #E2E2E2;
+            border-right: 1rpx solid #E2E2E2;
+          }
+        }
+      }
+    }
+    .goodsInfo {
+      padding: 25rpx;
+      display: flex;
+      align-items:flex-end;
+      .goodsImg {
+        min-width: 220rpx;
+        height: 220rpx;
+        border-radius: 8rpx;
+        margin-top:-100rpx;
+        view {
+          margin: 15rpx;
+          border:1rpx solid #E5E5E5;
+          border-radius: 3rpx;
+          image {
+            width: 100%;
+            margin:15rpx;
+          }
+        }
+      }
+      .goodsTitlec {
+        padding-left: 15rpx;
+        .close {
+          position: absolute;
+          top: 15rpx;
+          right: 20rpx;
+          width: 55rpx;
+          height: 55rpx;
+          image {
+            width: 35rpx;
+            height: 35rpx;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
+<template>
+    <view class="choose" wx:if="{{isShow}}" @tap="setShow">
+      <view class="back7 inBottom" @tap.stop="">
+        <view class="goodsInfo">
+          <view class="goodsImg back7">
+            <view class="imgCenter">
+              <image src="/images/test/shop/goods4.jpg" lazy-load="false" mode="widthFix" />
+            </view>
+          </view>
+          <view class="goodsTitlec fc3 fz14">
+            <view class="close imgCenter" @tap="setShow"><image src="/images/shopHome/close.png" mode="scaleToFill"
+              lazy-load="false"></view>
+            <view class="h2ddd">好吃点 饼干零食 香脆腰果饼800g(饼干礼盒)</view>
+          </view>
+        </view>
+        <view class="goodsData">
+          <repeat for="{{array}}" key="index" index="index" item="item">
+              <view class="flex-around">
+                <view class="fc3 fz13">{{item.uname}}</view>
+                <view wx:for="11" key="item">
+                  <view class="tc gfs" wx:for="11" key="index">
+                    <view class="fc76 fz14">￥28.00</view>
+                    <view class="fc6 fz12">1件起批</view>
+                  </view>
+                </view>
+                <view class="tc">
+                  <view class="imgCenter calcu">
+                    <view class="fz20 fc78">-</view>
+                    <input type="number" adjust-position="false" value="1" class="tc fc3 fz12" maxlength="4"/>
+                    <view class="fz20 fc76">+</view>
+                  </view>
+                  <view class="fc99 fz12">987件可售</view>
+                </view>
+              </view>
+          </repeat>
+        </view>
+        <view class="flex-center barBtn fz15 fcf tc">
+          <view class="back77">立即购买</view>
+          <view class="back76">购物车</view>
+        </view>
+      </view>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy';
+
+    export default class Choose extends wepy.component {
+        data = {
+          array:[
+            {
+              uname: '大包装/件',
+
+            },
+            {
+              uname: '大包装/件',
+
+            },
+          ]
+        }
+        props = {
+          isShow: {
+            type: Boolean,
+            default: false,
+            twoWay: true,
+          }
+        }
+        components = {}
+        // events = {
+        //   //父传
+        //   'some-event': () => {}
+        // }
+        methods = {
+          setShow() {
+            this.isShow = !this.isShow;
+          }
+        }
+        watch = {
+        }
+        onLoad() {
+        }
+    }
+</script>

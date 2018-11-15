@@ -106,8 +106,7 @@ page {
 				</repeat>
 			</view>
 			<view class="classinfo">
-				<gooTemplate2/>
-				<gooTemplate2/>
+				<gooTemplate :com.sync="gotype"/>
 			</view>
 		</view>
 		<tabBarShop/>
@@ -118,7 +117,7 @@ page {
 	import wepy from 'wepy'
 	import tabBarShop from '../components/tabBarShop'
 	import searchStyle from '../components/searchStyle'
-	import gooTemplate2 from '../components/goods/gooTemplate2'
+	import gooTemplate from '../components/goods/gooTemplate'
 
 	export default class ShopClassif extends wepy.page {
 		config = {
@@ -128,7 +127,8 @@ page {
 		}
 		data = {
 			active: 0,
-			list:['乳制品','休闲零食','粮油调味']
+			gotype: false,
+			list: ['乳制品','休闲零食','粮油调味'],
 		}
 		methods = {
 			seeClick(type){
@@ -138,7 +138,7 @@ page {
 		components = {
 			tabBarShop,
 			searchStyle,
-			gooTemplate2
+			gooTemplate,
 		}
 		onLoad() {}
 	}

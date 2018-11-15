@@ -7,7 +7,7 @@
 		<view class="back7 shopData relative">
 			<view class="flex" style="margin-bottom: 25rpx;">
 				<view class="logo back7 ove-h imgCenter">
-					<image src="../images/test/shop/goods (4).jpg" lazy-load="false" mode="widthFix" />
+					<image src="../images/test/shop/goods4.jpg" lazy-load="false" mode="widthFix" />
 				</view>
 				<view class="titles">
 					<text class="fc3 fz15">星艺粮烟酒批发商行</text>
@@ -69,16 +69,18 @@
 					<image src="../images/shopHome/{{goodsState==true?'flex1':'flex2'}}.png" lazy-load="true" mode="widthFix" style="width:45rpx;"/>
 				</view>
 			</view>
-			<gooTemplate1 wx:if="{{goodsState}}"/>
-			<gooTemplate2 wx:else/>
+			<!-- <gooTemplate1 wx:if="{{goodsState}}"/>
+			<gooTemplate2 wx:else/> -->
+			<gooTemplate :com.sync="goodsState"/>
 		</block>
 		<block wx:elif="{{tabType==2}}">
 			<repeat for="{{[7,6,5,4,3]}}" index="index" item="item" key="key">
 				<view class="fz13 fc99" style="margin-top:20rpx;">10月2{{item}}日</view>
-				<view style="margin-top:10rpx;" wx:if="{{index%2==1}}">
+				<!-- <view style="margin-top:10rpx;" wx:if="{{index%2==1}}">
 					<gooTemplate1 />
 				</view>
-				<gooTemplate2 wx:else/>
+				<gooTemplate2 wx:else/> -->
+				<gooTemplate :com.sync="(index%2==1)?true:false"/>
 			</repeat>
 		</block>
 		<block wx:elif="{{tabType==3}}">
@@ -92,8 +94,7 @@
 	import wepy from 'wepy'
 	import tabBarShop from '../components/tabBarShop'
 	import preTemplate3 from '../components/prefecture/preTemplate3'
-	import gooTemplate1 from '../components/goods/gooTemplate1'
-	import gooTemplate2 from '../components/goods/gooTemplate2'
+	import gooTemplate from '../components/goods/gooTemplate'
 
 	export default class ShopHome extends wepy.page {
 		config = {
@@ -110,7 +111,6 @@
 				this.goodsState = !this.goodsState;
 			},
 			switchBar(type){
-				console.log(type);
 				this.tabType = type;
 			},
 			jumpSearch(){
@@ -122,8 +122,7 @@
 		components = {
 			tabBarShop,
 			preTemplate3,
-			gooTemplate1,
-			gooTemplate2
+			gooTemplate,
 		}
 		onLoad() {}
 	}

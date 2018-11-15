@@ -1,0 +1,86 @@
+<style lang="less">
+	page {
+		background-color: #F2F2F2;
+		.topback {
+			height: 250rpx;
+			padding-left: 25rpx;
+			padding-right: 25rpx;
+			view {
+				margin-top: 25rpx;
+			}
+		}
+		.shoppingInfo {
+			padding: 25rpx;
+			position: absolute;
+			left: 0rpx;
+			right: 0rpx;
+			top: 60rpx;
+			>view {
+				border-radius: 20rpx;
+				.shopTitle {
+					padding: 20rpx 25rpx;
+				}
+			}
+		}
+		
+		/* checkbox未选中时样式 */
+		checkbox .wx-checkbox-input {
+			height: 40rpx;
+			width: 40rpx;
+			border-radius: 50%;
+			border:2rpx solid #CCCCCC;
+		}
+		/* checkbox选中时样式 */
+		checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+			color:#FFFFFF;
+			padding: 8rpx;
+			margin-top:-1rpx;
+			border-radius: 50%;
+			background-color: #FF6F33;
+		}
+	}
+</style>
+<template>
+	<view class="container">
+		<view class="topback back fcf flex">
+			<view>共12件商品</view>
+			<view>清空全部</view>
+		</view>
+		<view class="shoppingInfo">
+			<view class="back7" wx:for="1111111111111111111111111111111111111111111111111111111111">
+				<view class="shopTitle flex-item-center">
+					<checkbox-group bindchange="checkboxChange">
+						<label class="flex-item-center">
+							<checkbox value="USA" checked="{{item.checked}}"/>德清云库食品专营店
+						</label>
+					</checkbox-group>
+					<text class="fc3"></text>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	import wepy from 'wepy'
+	import shoppingList from '../components/shoppingList'
+
+	export default class ShoppingCart extends wepy.page {
+		config = {
+			navigationBarTitleText: '购物车',
+			backgroundColorTop: '#FF6F33',
+			backgroundColorBottom: '#F2F2F2'
+		}
+		components = {
+			shoppingList
+		}
+		data = {
+		}
+		methods = {
+			checkboxChange: function(e) {
+				console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+			}
+		}
+		onLoad() {}
+	}
+</script>
